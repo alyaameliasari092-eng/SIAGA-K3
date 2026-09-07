@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SIAGA K3</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f7f6;
+            color: #333;
+            min-height: 100vh;
+        }
+
+        header {
+            background: #0f6b4f;
+            color: white;
+            text-align: center;
+            padding: 35px 20px;
+        }
+
+        header h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 30px 20px;
+        }
+
+        .judul {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .judul h2 {
+            color: #0f6b4f;
+            margin-bottom: 10px;
+        }
+
+        .menu {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: 0.3s;
+            text-decoration: none;
+            color: #333;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .icon {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            margin-bottom: 10px;
+            color: #0f6b4f;
+        }
+
+        .card p {
+            font-size: 14px;
+            color: #666;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #777;
+            font-size: 13px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>SIAGA K3</h1>
+    <p>Sistem Informasi & Akses QR Inspeksi K3</p>
+</header>
+
+<div class="container">
+
+    <div class="judul">
+        <h2>Pilih Jenis Inspeksi</h2>
+        <p>Silakan pilih inspeksi yang ingin dilakukan</p>
+    </div>
+
+    <div class="menu">
+
+        <a href="#" class="card">
+            <div class="icon">🩹</div>
+            <h3>Inspeksi P3K</h3>
+            <p>Pemeriksaan kondisi dan kelengkapan fasilitas P3K</p>
+        </a>
+
+        <a href="#" class="card">
+            <div class="icon">🔥</div>
+            <h3>Inspeksi APAR</h3>
+            <p>Pemeriksaan kondisi dan kelengkapan APAR</p>
+        </a>
+
+        <a href="#" class="card">
+            <div class="icon">🚑</div>
+            <h3>Inspeksi Ambulans</h3>
+            <p>Pemeriksaan kesiapan dan kelengkapan ambulans</p>
+        </a>
+
+        <a href="#" class="card">
+            <div class="icon">🚨</div>
+            <h3>Emergency Equipment</h3>
+            <p>Pemeriksaan peralatan tanggap darurat</p>
+        </a>
+
+        <a href="#" class="card">
+            <div class="icon">📋</div>
+            <h3>Inspeksi K3</h3>
+            <p>Akses formulir inspeksi keselamatan dan kesehatan kerja</p>
+        </a>
+
+    </div>
+
+</div>
+
+<footer>
+    © 2026 SIAGA K3 | PT Pemalang Batang Toll Road
+</footer>
+
+</body>
+</html>
