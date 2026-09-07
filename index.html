@@ -21,14 +21,14 @@
         }
 
         header {
-            background: #0f6b4f;
+            background: linear-gradient(135deg, #0f6b4f, #138a64);
             color: white;
             text-align: center;
-            padding: 35px 20px;
+            padding: 45px 20px;
         }
 
         header h1 {
-            font-size: 32px;
+            font-size: 36px;
             margin-bottom: 10px;
         }
 
@@ -40,12 +40,12 @@
         .container {
             max-width: 900px;
             margin: auto;
-            padding: 30px 20px;
+            padding: 40px 20px;
         }
 
         .judul {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 35px;
         }
 
         .judul h2 {
@@ -53,46 +53,56 @@
             margin-bottom: 10px;
         }
 
+        .judul p {
+            color: #666;
+        }
+
         .menu {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
             gap: 20px;
         }
 
         .card {
             background: white;
-            padding: 25px;
-            border-radius: 15px;
+            padding: 30px 25px;
+            border-radius: 18px;
             text-align: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
             transition: 0.3s;
             text-decoration: none;
             color: #333;
+            border: 1px solid #e8e8e8;
         }
 
         .card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-7px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
         }
 
         .icon {
-            font-size: 45px;
-            margin-bottom: 15px;
+            font-size: 55px;
+            margin-bottom: 18px;
         }
 
         .card h3 {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             color: #0f6b4f;
+            font-size: 20px;
         }
 
         .card p {
             font-size: 14px;
+            line-height: 1.6;
             color: #666;
         }
 
         footer {
+            margin-top: 30px;
+            background: #0f6b4f;
+            color: white;
             text-align: center;
             padding: 20px;
-            color: #777;
             font-size: 13px;
         }
     </style>
@@ -100,57 +110,57 @@
 
 <body>
 
-<header>
-    <h1>SIAGA K3</h1>
-    <p>Sistem Informasi & Akses QR Inspeksi K3</p>
-</header>
+    <header>
+        <h1>SIAGA K3</h1>
+        <p>Sistem Informasi & Akses Digital Inspeksi K3</p>
+    </header>
 
-<div class="container">
+    <div class="container">
 
-    <div class="judul">
-        <h2>Pilih Jenis Inspeksi</h2>
-        <p>Silakan pilih inspeksi yang ingin dilakukan</p>
+        <div class="judul">
+            <h2>Pilih Layanan</h2>
+            <p>Silakan pilih layanan yang ingin Anda akses</p>
+        </div>
+
+        <div class="menu">
+
+            <!-- INSPEKSI P3K -->
+            <a href="#" class="card">
+                <div class="icon">🩹</div>
+                <h3>Inspeksi P3K</h3>
+                <p>
+                    Pemeriksaan kondisi dan kelengkapan fasilitas
+                    Pertolongan Pertama Pada Kecelakaan (P3K).
+                </p>
+            </a>
+
+            <!-- INSPEKSI APAR -->
+            <a href="#" class="card">
+                <div class="icon">🔥</div>
+                <h3>Inspeksi APAR</h3>
+                <p>
+                    Pemeriksaan kondisi dan kelengkapan
+                    Alat Pemadam Api Ringan (APAR).
+                </p>
+            </a>
+
+            <!-- PENGAJUAN REFILL P3K -->
+            <a href="#" class="card">
+                <div class="icon">📦</div>
+                <h3>Pengajuan Refill P3K</h3>
+                <p>
+                    Pengajuan pengisian ulang atau penggantian
+                    perlengkapan dan kebutuhan P3K.
+                </p>
+            </a>
+
+        </div>
+
     </div>
 
-    <div class="menu">
-
-        <a href="#" class="card">
-            <div class="icon">🩹</div>
-            <h3>Inspeksi P3K</h3>
-            <p>Pemeriksaan kondisi dan kelengkapan fasilitas P3K</p>
-        </a>
-
-        <a href="#" class="card">
-            <div class="icon">🔥</div>
-            <h3>Inspeksi APAR</h3>
-            <p>Pemeriksaan kondisi dan kelengkapan APAR</p>
-        </a>
-
-        <a href="#" class="card">
-            <div class="icon">🚑</div>
-            <h3>Inspeksi Ambulans</h3>
-            <p>Pemeriksaan kesiapan dan kelengkapan ambulans</p>
-        </a>
-
-        <a href="#" class="card">
-            <div class="icon">🚨</div>
-            <h3>Emergency Equipment</h3>
-            <p>Pemeriksaan peralatan tanggap darurat</p>
-        </a>
-
-        <a href="#" class="card">
-            <div class="icon">📋</div>
-            <h3>Inspeksi K3</h3>
-            <p>Akses formulir inspeksi keselamatan dan kesehatan kerja</p>
-        </a>
-
-    </div>
-
-</div>
-
-<footer>
-    © 2026 SIAGA K3 | PT Pemalang Batang Toll Road
-</footer>
+    <footer>
+        © 2026 SIAGA K3 | PT Pemalang Batang Toll Road
+    </footer>
 
 </body>
 </html>
