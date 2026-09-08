@@ -1,159 +1,1605 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>SIAGA K3</title>
+<title>K3 Digital Inspection</title>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<style>
 
-        body {
-            font-family: Arial, sans-serif;
-            background: #f4f7f6;
-            color: #333;
-            min-height: 100vh;
-        }
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
 
-        header {
-            background: linear-gradient(135deg, #0f6b4f, #138a64);
-            color: white;
-            text-align: center;
-            padding: 45px 20px;
-        }
+body {
+    background: #f4f6fb;
+    color: #243044;
+}
 
-        header h1 {
-            font-size: 36px;
-            margin-bottom: 10px;
-        }
+/* NAVBAR */
 
-        header p {
-            font-size: 16px;
-            opacity: 0.9;
-        }
+.navbar {
+    background: linear-gradient(135deg, #263b6f, #4059a8);
+    color: white;
+    padding: 18px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-        .container {
-            max-width: 900px;
-            margin: auto;
-            padding: 40px 20px;
-        }
+.navbar h2 {
+    font-size: 20px;
+}
 
-        .judul {
-            text-align: center;
-            margin-bottom: 35px;
-        }
+.navbar button {
+    background: transparent;
+    border: 1px solid white;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-left: 5px;
+}
 
-        .judul h2 {
-            color: #0f6b4f;
-            margin-bottom: 10px;
-        }
+/* HALAMAN */
 
-        .judul p {
-            color: #666;
-        }
+.page {
+    display: none;
+}
 
-        .menu {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-            gap: 20px;
-        }
+.page.active {
+    display: block;
+}
 
-        .card {
-            background: white;
-            padding: 30px 25px;
-            border-radius: 18px;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            transition: 0.3s;
-            text-decoration: none;
-            color: #333;
-            border: 1px solid #e8e8e8;
-        }
+/* HERO */
 
-        .card:hover {
-            transform: translateY(-7px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
-        }
+.hero {
+    padding: 60px 8%;
+    text-align: center;
+    background: linear-gradient(135deg, #eef2ff, #f7f9ff);
+}
 
-        .icon {
-            font-size: 55px;
-            margin-bottom: 18px;
-        }
+.hero h1 {
+    font-size: 38px;
+    color: #263b6f;
+}
 
-        .card h3 {
-            margin-bottom: 12px;
-            color: #0f6b4f;
-            font-size: 20px;
-        }
+.hero p {
+    margin-top: 15px;
+    color: #667085;
+    font-size: 17px;
+}
 
-        .card p {
-            font-size: 14px;
-            line-height: 1.6;
-            color: #666;
-        }
+/* MENU */
 
-        footer {
-            margin-top: 30px;
-            background: #0f6b4f;
-            color: white;
-            text-align: center;
-            padding: 20px;
-            font-size: 13px;
-        }
-    </style>
+.menu-container {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.menu-title {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+}
+
+.menu-card {
+    background: white;
+    border-radius: 20px;
+    padding: 35px 25px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.08);
+    text-align: center;
+    transition: .3s;
+}
+
+.menu-card:hover {
+    transform: translateY(-8px);
+}
+
+.menu-card .icon {
+    font-size: 55px;
+}
+
+.menu-card h2 {
+    margin-top: 15px;
+}
+
+.menu-card p {
+    margin: 15px 0 25px;
+    color: #667085;
+    line-height: 1.6;
+}
+
+/* BUTTON */
+
+.btn {
+    border: none;
+    padding: 13px 22px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    color: white;
+}
+
+.btn-apar {
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+}
+
+.btn-p3k {
+    background: linear-gradient(135deg, #16a085, #0f766e);
+}
+
+.btn-dashboard {
+    background: linear-gradient(135deg, #4059a8, #263b6f);
+}
+
+.btn-submit {
+    background: linear-gradient(135deg, #263b6f, #4059a8);
+    width: 100%;
+    font-size: 16px;
+}
+
+/* FORM */
+
+.form-container {
+    max-width: 850px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.form-header h1 {
+    color: #263b6f;
+}
+
+.section-title {
+    background: linear-gradient(135deg, #4059a8, #263b6f);
+    color: white;
+    padding: 18px;
+    border-radius: 15px 15px 0 0;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.form-section {
+    background: white;
+    padding: 28px;
+    margin-bottom: 25px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,.06);
+}
+
+.form-section h3 {
+    margin-bottom: 10px;
+}
+
+.form-section p {
+    color: #667085;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+/* INPUT */
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 14px;
+    margin-top: 8px;
+    border: 1px solid #d0d5dd;
+    border-radius: 10px;
+    font-size: 15px;
+}
+
+label {
+    font-weight: 600;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+/* CHECKLIST */
+
+.check-card {
+    background: white;
+    padding: 25px;
+    margin-bottom: 20px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,.06);
+}
+
+.check-card h3 {
+    margin-bottom: 10px;
+}
+
+.check-card p {
+    color: #667085;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.option {
+    flex: 1;
+    min-width: 180px;
+    border: 1px solid #d0d5dd;
+    padding: 14px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.option input {
+    width: auto;
+    margin-right: 8px;
+}
+
+.option:hover {
+    background: #f5f7ff;
+}
+
+/* STATUS */
+
+.status-box {
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.layak {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.perhatian {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.tidak-layak {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+/* DASHBOARD */
+
+.dashboard {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.stat-card {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,.06);
+}
+
+.stat-card h2 {
+    font-size: 32px;
+    margin-top: 10px;
+}
+
+.table-container {
+    overflow-x: auto;
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 14px;
+    border-bottom: 1px solid #eaecf0;
+    text-align: left;
+}
+
+th {
+    background: #f2f4f7;
+}
+
+@media(max-width:600px) {
+
+    .hero h1 {
+        font-size: 28px;
+    }
+
+    .navbar {
+        padding: 15px;
+    }
+
+    .navbar h2 {
+        font-size: 15px;
+    }
+
+}
+
+</style>
 </head>
 
 <body>
 
-<header>
-    <h1>SIAGA K3</h1>
-    <p>Sistem Informasi & Akses Digital Inspeksi K3</p>
-</header>
 
-<div class="container">
+<!-- NAVBAR -->
 
-    <div class="judul">
-        <h2>Pilih Layanan</h2>
-        <p>Silakan pilih layanan yang ingin Anda akses</p>
+<div class="navbar">
+
+    <h2>🦺 K3 DIGITAL INSPECTION</h2>
+
+    <div>
+        <button onclick="showPage('home')">Beranda</button>
+        <button onclick="showPage('dashboard')">Dashboard</button>
     </div>
 
-    <div class="menu">
+</div>
 
-        <!-- INSPEKSI P3K -->
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSc4J2mqYpeySuvliRv05H9hOBEmQCORi13mPqYHxDufoA4cyQ/viewform?usp=header" 
-           class="card" target="_blank">
+
+
+<!-- HALAMAN UTAMA -->
+
+<div id="home" class="page active">
+
+<section class="hero">
+
+    <h1>Digital Inspection Center</h1>
+
+    <p>
+        Sistem digital untuk kegiatan inspeksi dan monitoring
+        fasilitas Kesehatan dan Keselamatan Kerja
+    </p>
+
+</section>
+
+
+<div class="menu-container">
+
+    <div class="menu-title">
+
+        <h2>Pilih Jenis Inspeksi</h2>
+
+        <p>
+            Pilih fasilitas K3 yang akan dilakukan pemeriksaan
+        </p>
+
+    </div>
+
+
+    <div class="menu-grid">
+
+
+        <!-- APAR -->
+
+        <div class="menu-card">
+
+            <div class="icon">🧯</div>
+
+            <h2>Inspeksi APAR</h2>
+
+            <p>
+                Pemeriksaan kondisi dan kelayakan
+                Alat Pemadam Api Ringan
+            </p>
+
+            <button class="btn btn-apar"
+            onclick="showPage('apar')">
+
+                Mulai Inspeksi →
+
+            </button>
+
+        </div>
+
+
+
+        <!-- P3K -->
+
+        <div class="menu-card">
+
             <div class="icon">🩹</div>
-            <h3>Inspeksi P3K</h3>
-            <p>Pemeriksaan kondisi dan kelengkapan fasilitas P3K.</p>
-        </a>
 
-        <!-- INSPEKSI APAR -->
-        <a href="https://forms.gle/BNKc5L8e5U8XppVB9" 
-           class="card" target="_blank">
-            <div class="icon">🔥</div>
-            <h3>Inspeksi APAR</h3>
-            <p>Pemeriksaan kondisi dan kelengkapan APAR.</p>
-        </a>
+            <h2>Inspeksi P3K</h2>
 
-        <!-- PENGAJUAN REFILL P3K -->
-        <a href="#" class="card">
-            <div class="icon">📦</div>
-            <h3>Pengajuan Refill P3K</h3>
-            <p>Pengajuan pengisian ulang atau penggantian perlengkapan P3K.</p>
-        </a>
+            <p>
+                Pemeriksaan kondisi dan kelengkapan
+                fasilitas Pertolongan Pertama
+            </p>
+
+            <button class="btn btn-p3k"
+            onclick="showPage('p3k')">
+
+                Mulai Inspeksi →
+
+            </button>
+
+        </div>
+
+
+
+        <!-- DASHBOARD -->
+
+        <div class="menu-card">
+
+            <div class="icon">📊</div>
+
+            <h2>Dashboard</h2>
+
+            <p>
+                Pantau hasil inspeksi
+                APAR dan P3K secara digital
+            </p>
+
+            <button class="btn btn-dashboard"
+            onclick="showPage('dashboard')">
+
+                Lihat Dashboard →
+
+            </button>
+
+        </div>
+
 
     </div>
 
 </div>
 
-<footer>
-    © 2026 SIAGA K3 | PT Pemalang Batang Toll Road
-</footer>
+</div>
+
+
+
+<!-- ================= APAR ================= -->
+
+<div id="apar" class="page">
+
+<div class="form-container">
+
+<div class="form-header">
+
+<h1>🧯 INSPEKSI KONDISI APAR</h1>
+
+<p>
+Pemeriksaan kondisi APAR berdasarkan kondisi aktual
+di lokasi pemeriksaan
+</p>
+
+</div>
+
+
+<!-- IDENTITAS -->
+
+<div class="section-title">
+IDENTITAS PEMERIKSAAN
+</div>
+
+<div class="form-section">
+
+<div class="input-group">
+
+<label>Tanggal Pemeriksaan</label>
+
+<input type="date" id="aparTanggal">
+
+</div>
+
+
+<div class="input-group">
+
+<label>Nama Petugas Pemeriksa</label>
+
+<input type="text"
+id="aparPetugas"
+placeholder="Masukkan nama petugas">
+
+</div>
+
+
+<div class="input-group">
+
+<label>Kode APAR</label>
+
+<input type="text"
+id="aparKode"
+placeholder="Contoh: APAR-001">
+
+</div>
+
+
+<div class="input-group">
+
+<label>Lokasi APAR</label>
+
+<input type="text"
+id="aparLokasi"
+placeholder="Masukkan lokasi APAR">
+
+</div>
+
+</div>
+
+
+
+<!-- IDENTITAS APAR -->
+
+<div class="section-title">
+IDENTITAS APAR
+</div>
+
+<div class="form-section">
+
+<div class="input-group">
+
+<label>Jenis Media Pemadam</label>
+
+<select id="jenisMedia">
+
+<option value="">Pilih jenis media</option>
+
+<option>Dry Chemical Powder</option>
+
+<option>CO₂</option>
+
+<option>Foam</option>
+
+<option>Air (Water)</option>
+
+<option>Lainnya</option>
+
+</select>
+
+</div>
+
+
+<div class="input-group">
+
+<label>Kapasitas APAR</label>
+
+<select id="kapasitas">
+
+<option value="">Pilih kapasitas</option>
+
+<option>1 Kg</option>
+<option>2 Kg</option>
+<option>3 Kg</option>
+<option>4 Kg</option>
+<option>5 Kg</option>
+<option>6 Kg</option>
+<option>9 Kg</option>
+<option>Lainnya</option>
+
+</select>
+
+</div>
+
+</div>
+
+
+
+<!-- CHECKLIST -->
+
+<div class="section-title">
+CEKLIST PEMERIKSAAN APAR
+</div>
+
+
+<div id="aparChecklist"></div>
+
+
+
+<!-- TEMUAN -->
+
+<div class="section-title">
+TEMUAN KETIDAKSESUAIAN
+</div>
+
+
+<div class="form-section">
+
+<label>Apakah ditemukan ketidaksesuaian?</label>
+
+<div class="options">
+
+<label class="option">
+<input type="radio"
+name="temuan"
+value="Ya"
+onclick="toggleTemuan(true)">
+Ya
+</label>
+
+
+<label class="option">
+
+<input type="radio"
+name="temuan"
+value="Tidak"
+onclick="toggleTemuan(false)">
+
+Tidak
+
+</label>
+
+</div>
+
+</div>
+
+
+
+<div id="jenisTemuan"
+style="display:none">
+
+<div class="form-section">
+
+<h3>Jenis Ketidaksesuaian</h3>
+
+<div class="options">
+
+<label class="option">
+<input type="checkbox">
+Tekanan tidak normal
+</label>
+
+<label class="option">
+<input type="checkbox">
+Segel rusak
+</label>
+
+<label class="option">
+<input type="checkbox">
+Pin pengaman tidak tersedia
+</label>
+
+<label class="option">
+<input type="checkbox">
+Tabung berkarat atau rusak
+</label>
+
+<label class="option">
+<input type="checkbox">
+Selang/nozzle rusak
+</label>
+
+<label class="option">
+<input type="checkbox">
+Masa berlaku perlu diperiksa
+</label>
+
+<label class="option">
+<input type="checkbox">
+APAR terhalang
+</label>
+
+<label class="option">
+<input type="checkbox">
+Rambu tidak tersedia/tidak terlihat
+</label>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- URAIAN -->
+
+<div class="form-section">
+
+<label>Uraian Temuan</label>
+
+<textarea id="aparUraian"
+rows="5"
+placeholder="Jelaskan kondisi atau ketidaksesuaian yang ditemukan"></textarea>
+
+</div>
+
+
+
+<!-- DOKUMENTASI -->
+
+<div class="form-section">
+
+<h3>📸 Dokumentasi</h3>
+
+<p>
+Upload foto kerusakan atau ketidaksesuaian
+yang ditemukan selama pemeriksaan
+</p>
+
+<input type="file"
+id="aparFoto"
+accept="image/*">
+
+</div>
+
+
+
+<!-- STATUS -->
+
+<div class="section-title">
+STATUS AKHIR
+</div>
+
+
+<div class="form-section">
+
+<div id="aparStatus"
+class="status-box perhatian">
+
+Status akan ditentukan otomatis berdasarkan hasil pemeriksaan
+
+</div>
+
+
+<button class="btn btn-submit"
+onclick="submitAPAR()">
+
+KIRIM HASIL INSPEKSI APAR 🔥
+
+</button>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+
+<!-- ================= P3K ================= -->
+
+<div id="p3k" class="page">
+
+<div class="form-container">
+
+<div class="form-header">
+
+<h1>🩹 INSPEKSI KONDISI P3K</h1>
+
+<p>
+Pemeriksaan kondisi dan kelengkapan fasilitas
+Pertolongan Pertama
+</p>
+
+</div>
+
+
+
+<div class="section-title">
+IDENTITAS PEMERIKSAAN
+</div>
+
+
+<div class="form-section">
+
+<div class="input-group">
+
+<label>Tanggal Pemeriksaan</label>
+
+<input type="date" id="p3kTanggal">
+
+</div>
+
+
+<div class="input-group">
+
+<label>Nama Petugas Pemeriksa</label>
+
+<input type="text"
+id="p3kPetugas"
+placeholder="Masukkan nama petugas">
+
+</div>
+
+
+<div class="input-group">
+
+<label>Lokasi P3K</label>
+
+<input type="text"
+id="p3kLokasi"
+placeholder="Masukkan lokasi fasilitas P3K">
+
+</div>
+
+</div>
+
+
+
+<div class="section-title">
+KONDISI FASILITAS P3K
+</div>
+
+
+<div id="p3kChecklist"></div>
+
+
+
+<div class="section-title">
+TEMUAN DAN KETIDAKSESUAIAN
+</div>
+
+
+<div class="form-section">
+
+<label>Apakah ditemukan ketidaksesuaian?</label>
+
+<div class="options">
+
+<label class="option">
+
+<input type="radio"
+name="p3kTemuan">
+
+Ya
+
+</label>
+
+
+<label class="option">
+
+<input type="radio"
+name="p3kTemuan">
+
+Tidak
+
+</label>
+
+</div>
+
+</div>
+
+
+
+<div class="form-section">
+
+<label>Uraian Temuan</label>
+
+<textarea
+id="p3kUraian"
+rows="5"
+placeholder="Jelaskan kondisi atau temuan yang ditemukan"></textarea>
+
+</div>
+
+
+
+<div class="form-section">
+
+<h3>📸 Dokumentasi</h3>
+
+<input type="file"
+id="p3kFoto"
+accept="image/*">
+
+</div>
+
+
+
+<div class="section-title">
+STATUS AKHIR
+</div>
+
+
+<div class="form-section">
+
+<div id="p3kStatus"
+class="status-box perhatian">
+
+Status akan ditentukan otomatis berdasarkan hasil pemeriksaan
+
+</div>
+
+
+<button class="btn btn-submit"
+onclick="submitP3K()">
+
+KIRIM HASIL INSPEKSI P3K 🩹
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- ================= DASHBOARD ================= -->
+
+<div id="dashboard" class="page">
+
+<div class="dashboard">
+
+<h1>📊 Dashboard Inspeksi K3</h1>
+
+<br>
+
+
+<div class="stats">
+
+<div class="stat-card">
+
+<p>Total Inspeksi</p>
+
+<h2 id="totalInspeksi">0</h2>
+
+</div>
+
+
+<div class="stat-card">
+
+<p>🟢 Layak</p>
+
+<h2 id="totalLayak">0</h2>
+
+</div>
+
+
+<div class="stat-card">
+
+<p>🟡 Perlu Tindak Lanjut</p>
+
+<h2 id="totalPerhatian">0</h2>
+
+</div>
+
+
+<div class="stat-card">
+
+<p>🔴 Tidak Layak</p>
+
+<h2 id="totalTidakLayak">0</h2>
+
+</div>
+
+</div>
+
+
+
+<div class="table-container">
+
+<h2>Riwayat Inspeksi</h2>
+
+<br>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Tanggal</th>
+<th>Jenis</th>
+<th>Lokasi</th>
+<th>Petugas</th>
+<th>Status</th>
+
+</tr>
+
+</thead>
+
+
+<tbody id="dataInspeksi">
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<script>
+
+
+/* NAVIGASI HALAMAN */
+
+function showPage(pageId) {
+
+document.querySelectorAll(".page")
+.forEach(page => {
+
+page.classList.remove("active");
+
+});
+
+document.getElementById(pageId)
+.classList.add("active");
+
+
+if(pageId === "dashboard") {
+
+loadDashboard();
+
+}
+
+window.scrollTo({
+
+top: 0,
+
+behavior: "smooth"
+
+});
+
+}
+
+
+
+/* DATA CHECKLIST APAR */
+
+const aparItems = [
+
+{
+judul: "KONDISI FISIK TABUNG APAR",
+deskripsi: "Periksa apakah tabung APAR tidak mengalami karat, penyok, kebocoran, atau kerusakan lainnya."
+},
+
+{
+judul: "KONDISI TEKANAN APAR",
+deskripsi: "Periksa apakah indikator tekanan berada pada posisi normal atau zona hijau."
+},
+
+{
+judul: "KONDISI PIN PENGAMAN",
+deskripsi: "Periksa apakah pin pengaman tersedia dan terpasang dalam kondisi baik."
+},
+
+{
+judul: "KONDISI SEGEL APAR",
+deskripsi: "Periksa apakah kondisi segel APAR masih utuh dan tidak rusak."
+},
+
+{
+judul: "KONDISI SELANG DAN NOZZLE",
+deskripsi: "Periksa apakah selang dan nozzle tidak retak, rusak, atau tersumbat."
+},
+
+{
+judul: "KONDISI LABEL DAN PETUNJUK",
+deskripsi: "Periksa apakah label dan petunjuk penggunaan masih tersedia serta dapat dibaca dengan jelas."
+},
+
+{
+judul: "MASA BERLAKU APAR",
+deskripsi: "Periksa apakah APAR masih berada dalam masa berlaku dan tidak melewati jadwal pemeriksaan atau pemeliharaan."
+},
+
+{
+judul: "PENEMPATAN APAR",
+deskripsi: "Periksa apakah APAR ditempatkan pada lokasi yang telah ditentukan dan mudah terlihat."
+},
+
+{
+judul: "AKSES MENUJU APAR",
+deskripsi: "Periksa apakah akses menuju APAR tidak terhalang oleh barang atau peralatan lainnya."
+},
+
+{
+judul: "KONDISI RAMBU APAR",
+deskripsi: "Periksa apakah rambu atau tanda lokasi APAR tersedia dan dapat terlihat dengan jelas."
+}
+
+];
+
+
+/* TAMPILKAN CHECKLIST APAR */
+
+const aparContainer =
+document.getElementById("aparChecklist");
+
+
+aparItems.forEach((item,index) => {
+
+aparContainer.innerHTML += `
+
+<div class="check-card">
+
+<h3>${item.judul}</h3>
+
+<p>${item.deskripsi}</p>
+
+<div class="options">
+
+<label class="option">
+
+<input
+type="radio"
+name="apar${index}"
+value="Baik"
+onchange="updateAparStatus()">
+
+🟢 Baik
+
+</label>
+
+
+<label class="option">
+
+<input
+type="radio"
+name="apar${index}"
+value="Perlu Perhatian"
+onchange="updateAparStatus()">
+
+🟡 Perlu Perhatian
+
+</label>
+
+
+<label class="option">
+
+<input
+type="radio"
+name="apar${index}"
+value="Tidak Sesuai/Rusak"
+onchange="updateAparStatus()">
+
+🔴 Tidak Sesuai/Rusak
+
+</label>
+
+</div>
+
+</div>
+
+`;
+
+});
+
+
+
+/* DATA CHECKLIST P3K */
+
+const p3kItems = [
+
+{
+judul: "KONDISI KOTAK P3K",
+deskripsi: "Periksa apakah kotak P3K dalam kondisi baik, bersih, dan tidak rusak."
+},
+
+{
+judul: "KETERSEDIAAN KOTAK P3K",
+deskripsi: "Periksa apakah kotak P3K tersedia pada lokasi yang telah ditentukan."
+},
+
+{
+judul: "AKSES MENUJU P3K",
+deskripsi: "Periksa apakah fasilitas P3K mudah dijangkau dan tidak terhalang."
+},
+
+{
+judul: "KONDISI DAN KELENGKAPAN ISI P3K",
+deskripsi: "Periksa kelengkapan dan kondisi perlengkapan pertolongan pertama."
+},
+
+{
+judul: "MASA BERLAKU PERLENGKAPAN",
+deskripsi: "Periksa apakah perlengkapan yang memiliki masa berlaku masih dapat digunakan."
+},
+
+{
+judul: "KONDISI RAMBU P3K",
+deskripsi: "Periksa apakah tanda atau rambu lokasi P3K tersedia dan mudah terlihat."
+}
+
+];
+
+
+const p3kContainer =
+document.getElementById("p3kChecklist");
+
+
+p3kItems.forEach((item,index) => {
+
+p3kContainer.innerHTML += `
+
+<div class="check-card">
+
+<h3>${item.judul}</h3>
+
+<p>${item.deskripsi}</p>
+
+<div class="options">
+
+<label class="option">
+
+<input
+type="radio"
+name="p3k${index}"
+value="Baik"
+onchange="updateP3KStatus()">
+
+🟢 Baik
+
+</label>
+
+
+<label class="option">
+
+<input
+type="radio"
+name="p3k${index}"
+value="Perlu Perhatian"
+onchange="updateP3KStatus()">
+
+🟡 Perlu Perhatian
+
+</label>
+
+
+<label class="option">
+
+<input
+type="radio"
+name="p3k${index}"
+value="Tidak Sesuai/Rusak"
+onchange="updateP3KStatus()">
+
+🔴 Tidak Sesuai/Rusak
+
+</label>
+
+</div>
+
+</div>
+
+`;
+
+});
+
+
+
+/* STATUS APAR OTOMATIS */
+
+function updateAparStatus() {
+
+let rusak =
+document.querySelectorAll(
+'input[value="Tidak Sesuai/Rusak"]:checked'
+).length;
+
+
+let perhatian =
+document.querySelectorAll(
+'input[value="Perlu Perhatian"]:checked'
+).length;
+
+
+const status =
+document.getElementById("aparStatus");
+
+
+if(rusak > 0) {
+
+status.innerHTML =
+"🔴 TIDAK LAYAK DIGUNAKAN";
+
+status.className =
+"status-box tidak-layak";
+
+}
+
+else if(perhatian > 0) {
+
+status.innerHTML =
+"🟡 PERLU TINDAK LANJUT";
+
+status.className =
+"status-box perhatian";
+
+}
+
+else {
+
+status.innerHTML =
+"🟢 LAYAK DIGUNAKAN";
+
+status.className =
+"status-box layak";
+
+}
+
+}
+
+
+
+/* STATUS P3K OTOMATIS */
+
+function updateP3KStatus() {
+
+let rusak =
+document.querySelectorAll(
+'input[name^="p3k"][value="Tidak Sesuai/Rusak"]:checked'
+).length;
+
+
+let perhatian =
+document.querySelectorAll(
+'input[name^="p3k"][value="Perlu Perhatian"]:checked'
+).length;
+
+
+const status =
+document.getElementById("p3kStatus");
+
+
+if(rusak > 0) {
+
+status.innerHTML =
+"🔴 TIDAK LAYAK DIGUNAKAN";
+
+status.className =
+"status-box tidak-layak";
+
+}
+
+else if(perhatian > 0) {
+
+status.innerHTML =
+"🟡 PERLU TINDAK LANJUT";
+
+status.className =
+"status-box perhatian";
+
+}
+
+else {
+
+status.innerHTML =
+"🟢 LAYAK DIGUNAKAN";
+
+status.className =
+"status-box layak";
+
+}
+
+}
+
+
+
+/* TEMUAN APAR */
+
+function toggleTemuan(show) {
+
+document.getElementById("jenisTemuan")
+.style.display = show ? "block" : "none";
+
+}
+
+
+
+/* SIMPAN APAR */
+
+function submitAPAR() {
+
+const data = {
+
+tanggal:
+document.getElementById("aparTanggal").value,
+
+jenis:
+"APAR",
+
+lokasi:
+document.getElementById("aparLokasi").value,
+
+petugas:
+document.getElementById("aparPetugas").value,
+
+status:
+document.getElementById("aparStatus").innerText
+
+};
+
+
+saveInspection(data);
+
+
+alert(
+"Hasil inspeksi APAR berhasil disimpan!"
+);
+
+
+showPage("dashboard");
+
+}
+
+
+
+/* SIMPAN P3K */
+
+function submitP3K() {
+
+const data = {
+
+tanggal:
+document.getElementById("p3kTanggal").value,
+
+jenis:
+"P3K",
+
+lokasi:
+document.getElementById("p3kLokasi").value,
+
+petugas:
+document.getElementById("p3kPetugas").value,
+
+status:
+document.getElementById("p3kStatus").innerText
+
+};
+
+
+saveInspection(data);
+
+
+alert(
+"Hasil inspeksi P3K berhasil disimpan!"
+);
+
+
+showPage("dashboard");
+
+}
+
+
+
+/* SIMPAN DATA */
+
+function saveInspection(data) {
+
+let inspections =
+JSON.parse(
+localStorage.getItem("inspections")
+) || [];
+
+
+inspections.push(data);
+
+
+localStorage.setItem(
+
+"inspections",
+
+JSON.stringify(inspections)
+
+);
+
+}
+
+
+
+/* DASHBOARD */
+
+function loadDashboard() {
+
+let inspections =
+JSON.parse(
+localStorage.getItem("inspections")
+) || [];
+
+
+document.getElementById("totalInspeksi")
+.innerText = inspections.length;
+
+
+let layak = 0;
+
+let perhatian = 0;
+
+let tidakLayak = 0;
+
+
+const table =
+document.getElementById("dataInspeksi");
+
+
+table.innerHTML = "";
+
+
+inspections.forEach(data => {
+
+if(data.status.includes("LAYAK DIGUNAKAN") &&
+!data.status.includes("TIDAK")) {
+
+layak++;
+
+}
+
+else if(
+data.status.includes("PERLU")
+) {
+
+perhatian++;
+
+}
+
+else if(
+data.status.includes("TIDAK")
+) {
+
+tidakLayak++;
+
+}
+
+
+table.innerHTML += `
+
+<tr>
+
+<td>${data.tanggal}</td>
+
+<td>${data.jenis}</td>
+
+<td>${data.lokasi}</td>
+
+<td>${data.petugas}</td>
+
+<td>${data.status}</td>
+
+</tr>
+
+`;
+
+});
+
+
+document.getElementById("totalLayak")
+.innerText = layak;
+
+
+document.getElementById("totalPerhatian")
+.innerText = perhatian;
+
+
+document.getElementById("totalTidakLayak")
+.innerText = tidakLayak;
+
+}
+
+
+</script>
 
 </body>
-</html>    
+</html>
