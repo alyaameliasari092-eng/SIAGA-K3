@@ -1,465 +1,807 @@
-```html
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>SIAGA - Keselamatan Kerja</title>
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, Helvetica, sans-serif;
-        }
-
-        body {
-            background: #f5f7f9;
-            color: #1f2937;
-        }
-
-        /* ================= HEADER ================= */
-
-        header {
-            width: 100%;
-            background: white;
-            padding: 18px 7%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-            position: relative;
-            z-index: 10;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SIAGA - Keselamatan Kerja</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background: #f5f7f9;
+    color: #1f2937;
+}
+
+button {
+    cursor: pointer;
+}
+
+/* ================= HEADER ================= */
+
+header {
+    width: 100%;
+    background: white;
+    padding: 18px 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    position: relative;
+    z-index: 10;
+}
+
+/* LOGO + SIAGA */
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.brand-logo {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+}
+
+.brand-text {
+    font-size: 28px;
+    font-weight: 800;
+    color: #0f3d2e;
+    letter-spacing: 1px;
+}
+
+/* NAVBAR */
+
+nav {
+    display: flex;
+    gap: 28px;
+    align-items: center;
+}
+
+nav a {
+    text-decoration: none;
+    color: #374151;
+    font-size: 15px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #0f7a52;
+}
+
+.nav-button {
+    border: none;
+    background: #167b50;
+    color: white;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-weight: 700;
+}
+
+/* ================= HERO ================= */
+
+.hero {
+    min-height: 650px;
+    padding: 70px 7% 80px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background:
+        linear-gradient(
+            135deg,
+            #e9f5ef 0%,
+            #f8fbf9 55%,
+            #ffffff 100%
+        );
+
+    position: relative;
+    overflow: hidden;
+}
+
+/* DEKORASI BACKGROUND */
+
+.hero::before {
+    content: "";
+    position: absolute;
+
+    width: 450px;
+    height: 450px;
 
-        /* LOGO + SIAGA */
+    background: #d8eee3;
 
-        .brand {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
+    border-radius: 50%;
 
-        .brand-logo {
-            width: 48px;
-            height: 48px;
-            object-fit: contain;
-        }
-
-        .brand-text {
-            font-size: 28px;
-            font-weight: 800;
-            color: #0f3d2e;
-            letter-spacing: 1px;
-        }
-
-        /* NAVBAR */
-
-        nav {
-            display: flex;
-            gap: 28px;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: #374151;
-            font-size: 15px;
-            font-weight: 600;
-            transition: 0.3s;
-        }
-
-        nav a:hover {
-            color: #0f7a52;
-        }
-
-
-        /* ================= HERO ================= */
-
-        .hero {
-            min-height: 650px;
-            padding: 70px 7% 80px;
-
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+    top: -180px;
+    right: -100px;
 
-            background:
-                linear-gradient(
-                    135deg,
-                    #e9f5ef 0%,
-                    #f8fbf9 55%,
-                    #ffffff 100%
-                );
+    opacity: 0.6;
+}
 
-            position: relative;
-            overflow: hidden;
-        }
+.hero::after {
+    content: "";
+    position: absolute;
 
-        /* DEKORASI BACKGROUND */
+    width: 250px;
+    height: 250px;
 
-        .hero::before {
-            content: "";
-            position: absolute;
+    background: #e4f3eb;
 
-            width: 450px;
-            height: 450px;
+    border-radius: 50%;
 
-            background: #d8eee3;
+    bottom: -100px;
+    left: -80px;
 
-            border-radius: 50%;
+    opacity: 0.8;
+}
 
-            top: -180px;
-            right: -100px;
+/* TEKS HERO */
 
-            opacity: 0.6;
-        }
+.hero-content {
+    width: 50%;
+    position: relative;
+    z-index: 2;
+}
 
-        .hero::after {
-            content: "";
-            position: absolute;
+.hero-content .small-title {
+    color: #178052;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
 
-            width: 250px;
-            height: 250px;
-
-            background: #e4f3eb;
-
-            border-radius: 50%;
-
-            bottom: -100px;
-            left: -80px;
-
-            opacity: 0.8;
-        }
-
-
-        /* TEKS HERO */
-
-        .hero-content {
-            width: 50%;
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero-content .small-title {
-            color: #178052;
-            font-size: 15px;
-            font-weight: 700;
-            letter-spacing: 2px;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-        }
-
-        .hero-content h1 {
-            font-size: 58px;
-            line-height: 1.05;
-            color: #123b2d;
-            margin-bottom: 22px;
-        }
-
-        .hero-content h1 span {
-            color: #168052;
-        }
-
-        .hero-content p {
-            max-width: 520px;
-            font-size: 17px;
-            line-height: 1.7;
-            color: #5b6470;
-            margin-bottom: 30px;
-        }
-
-
-        /* BUTTON */
-
-        .hero-button {
-            display: inline-block;
-
-            padding: 14px 25px;
-
-            background: #167b50;
-            color: white;
-
-            text-decoration: none;
-
-            border-radius: 10px;
-
-            font-weight: 700;
-
-            transition: 0.3s;
-
-            box-shadow: 0 7px 18px rgba(22,123,80,0.25);
-        }
-
-        .hero-button:hover {
-            background: #0e633f;
-            transform: translateY(-2px);
-        }
-
-
-        /* ================= GAMBAR PETUGAS ================= */
-
-        .hero-image {
-            width: 45%;
-
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero-person {
-            width: 100%;
-            max-width: 500px;
-
-            height: auto;
-
-            object-fit: contain;
-
-            filter: drop-shadow(
-                0 20px 25px rgba(0,0,0,0.12)
-            );
-
-            animation: floating 4s ease-in-out infinite;
-        }
-
-        @keyframes floating {
-            0% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-8px);
-            }
-
-            100% {
-                transform: translateY(0);
-            }
-        }
-
-
-        /* ================= INFO SECTION ================= */
-
-        .info-section {
-            padding: 70px 7%;
-            background: white;
-            text-align: center;
-        }
-
-        .info-section h2 {
-            font-size: 32px;
-            color: #123b2d;
-            margin-bottom: 12px;
-        }
-
-        .info-section > p {
-            color: #6b7280;
-            margin-bottom: 40px;
-        }
-
-
-        /* CARD */
-
-        .cards {
-            display: grid;
-
-            grid-template-columns:
-                repeat(3, 1fr);
-
-            gap: 25px;
-
-            max-width: 1100px;
-
-            margin: auto;
-        }
-
-        .card {
-            background: #f7faf8;
-
-            padding: 30px 25px;
-
-            border-radius: 18px;
-
-            text-align: left;
-
-            border: 1px solid #e5eee9;
-
-            transition: 0.3s;
-        }
-
-        .card:hover {
-            transform: translateY(-6px);
-
-            box-shadow:
-                0 12px 30px rgba(0,0,0,0.08);
-        }
-
-        .card-icon {
-            width: 50px;
-            height: 50px;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            background: #dff2e8;
-
-            border-radius: 12px;
-
-            font-size: 24px;
-
-            margin-bottom: 18px;
-        }
-
-        .card h3 {
-            color: #174b38;
-            margin-bottom: 10px;
-        }
-
-        .card p {
-            color: #6b7280;
-            line-height: 1.6;
-            font-size: 14px;
-        }
-
-
-        /* ================= FOOTER ================= */
-
-        footer {
-            background: #123b2d;
-            color: white;
-
-            text-align: center;
-
-            padding: 25px;
-
-            font-size: 14px;
-        }
-
-
-        /* ================= RESPONSIVE ================= */
-
-        @media (max-width: 900px) {
-
-            header {
-                padding: 15px 5%;
-            }
-
-            nav {
-                gap: 15px;
-            }
-
-            .hero {
-                flex-direction: column;
-
-                text-align: center;
-
-                padding: 60px 6%;
-            }
-
-            .hero-content {
-                width: 100%;
-            }
-
-            .hero-content h1 {
-                font-size: 44px;
-            }
-
-            .hero-content p {
-                margin-left: auto;
-                margin-right: auto;
-            }
-
-            .hero-image {
-                width: 100%;
-                margin-top: 40px;
-            }
-
-            .hero-person {
-                max-width: 400px;
-            }
-
-            .cards {
-                grid-template-columns: 1fr;
-            }
-        }
-
-
-        @media (max-width: 600px) {
-
-            header {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            .brand-text {
-                font-size: 24px;
-            }
-
-            nav {
-                gap: 15px;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-
-            .hero {
-                min-height: auto;
-            }
-
-            .hero-content h1 {
-                font-size: 38px;
-            }
-
-            .hero-content p {
-                font-size: 15px;
-            }
-
-            .hero-person {
-                max-width: 320px;
-            }
-        }
-    </style>
+.hero-content h1 {
+    font-size: 58px;
+    line-height: 1.05;
+    color: #123b2d;
+    margin-bottom: 22px;
+}
+
+.hero-content h1 span {
+    color: #168052;
+}
+
+.hero-content p {
+    max-width: 520px;
+    font-size: 17px;
+    line-height: 1.7;
+    color: #5b6470;
+    margin-bottom: 30px;
+}
+
+/* BUTTON */
+
+.hero-button {
+    display: inline-block;
+    padding: 14px 25px;
+    background: #167b50;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: 700;
+    transition: 0.3s;
+    box-shadow: 0 7px 18px rgba(22,123,80,0.25);
+}
+
+.hero-button:hover {
+    background: #0e633f;
+    transform: translateY(-2px);
+}
+
+/* ================= GAMBAR PETUGAS ================= */
+
+.hero-image {
+    width: 45%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+    z-index: 2;
+}
+
+.hero-person {
+    width: 100%;
+    max-width: 500px;
+
+    height: auto;
+
+    object-fit: contain;
+
+    filter: drop-shadow(
+        0 20px 25px rgba(0,0,0,0.12)
+    );
+
+    animation: floating 4s ease-in-out infinite;
+}
+
+@keyframes floating {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* ================= INFO SECTION ================= */
+
+.info-section {
+    padding: 70px 7%;
+    background: white;
+    text-align: center;
+}
+
+.info-section h2 {
+    font-size: 32px;
+    color: #123b2d;
+    margin-bottom: 12px;
+}
+
+.info-section > p {
+    color: #6b7280;
+    margin-bottom: 40px;
+}
+
+/* CARD */
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.card {
+    background: #f7faf8;
+    padding: 30px 25px;
+    border-radius: 18px;
+    text-align: left;
+    border: 1px solid #e5eee9;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+}
+
+.card-icon {
+    width: 50px;
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #dff2e8;
+
+    border-radius: 12px;
+
+    font-size: 24px;
+
+    margin-bottom: 18px;
+}
+
+.card h3 {
+    color: #174b38;
+    margin-bottom: 10px;
+}
+
+.card p {
+    color: #6b7280;
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+/* ================= PAGE ================= */
+
+.page {
+    display: none;
+}
+
+.page.active {
+    display: block;
+}
+
+/* ================= INSPECTION CONTAINER ================= */
+
+.form-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.form-header h1 {
+    color: #123b2d;
+    margin-bottom: 10px;
+}
+
+.form-header p {
+    color: #667085;
+}
+
+/* SECTION */
+
+.section-title {
+    padding: 16px 20px;
+    color: white;
+    background: #167b50;
+    border-radius: 15px 15px 0 0;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.section {
+    background: white;
+    padding: 25px;
+    margin-bottom: 25px;
+    border-radius: 0 0 15px 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,.05);
+}
+
+.input-group {
+    margin-bottom: 18px;
+}
+
+.input-group:last-child {
+    margin-bottom: 0;
+}
+
+label {
+    font-weight: 600;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    margin-top: 7px;
+    padding: 12px;
+    border: 1px solid #d0d5dd;
+    border-radius: 9px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+/* ================= CHECK CARD ================= */
+
+.check-card {
+    background: white;
+    padding: 23px;
+    margin-bottom: 18px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,.05);
+}
+
+.check-card h3 {
+    margin-bottom: 10px;
+    color: #174b38;
+}
+
+.check-card p {
+    color: #667085;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.option {
+    flex: 1;
+    min-width: 180px;
+    padding: 12px;
+    border: 1px solid #d0d5dd;
+    border-radius: 10px;
+    cursor: pointer;
+    background: #fff;
+}
+
+.option:hover {
+    background: #f7faf8;
+}
+
+.option input {
+    width: auto;
+    margin-right: 6px;
+}
+
+/* ================= STATUS ================= */
+
+.status-box {
+    padding: 18px;
+    text-align: center;
+    border-radius: 10px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.status-normal {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.status-warning {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.status-danger {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+/* ================= BUTTON ================= */
+
+.btn {
+    border: none;
+    padding: 13px 20px;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+}
+
+.apar-btn {
+    background: #dc2626;
+}
+
+.p3k-btn {
+    background: #059669;
+}
+
+.dashboard-btn {
+    background: #334e9e;
+}
+
+.back-btn {
+    background: #6b7280;
+    margin-bottom: 20px;
+}
+
+.submit-btn {
+    background: #123b2d;
+    width: 100%;
+    font-size: 16px;
+}
+
+/* ================= P3K ITEM ================= */
+
+.item-card {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,.05);
+}
+
+.item-card h3 {
+    margin-bottom: 15px;
+    color: #174b38;
+}
+
+/* ================= DASHBOARD ================= */
+
+.dashboard-container {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.dashboard-header {
+    margin-bottom: 30px;
+}
+
+.dashboard-header h1 {
+    color: #123b2d;
+}
+
+.dashboard-header p {
+    color: #667085;
+    margin-top: 8px;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px,1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.stat {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,.06);
+}
+
+.stat h2 {
+    margin-top: 10px;
+    font-size: 32px;
+}
+
+.stat p {
+    color: #667085;
+}
+
+/* ================= TABLE ================= */
+
+.table-container {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    overflow-x: auto;
+}
+
+.table-container h2 {
+    margin-bottom: 20px;
+    color: #123b2d;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 13px;
+    border-bottom: 1px solid #e5e7eb;
+    text-align: left;
+}
+
+th {
+    background: #f3f4f6;
+}
+
+/* ================= INSPECTION MENU ================= */
+
+.inspection-section {
+    padding: 70px 7%;
+    background: #f5f7f9;
+    text-align: center;
+}
+
+.inspection-section h2 {
+    color: #123b2d;
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.inspection-section > p {
+    color: #6b7280;
+    margin-bottom: 40px;
+}
+
+.inspection-cards {
+    max-width: 1000px;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.inspection-card {
+    background: white;
+    padding: 35px;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0,0,0,.06);
+}
+
+.inspection-card .big-icon {
+    font-size: 55px;
+    margin-bottom: 15px;
+}
+
+.inspection-card h3 {
+    color: #123b2d;
+    margin-bottom: 10px;
+}
+
+.inspection-card p {
+    color: #667085;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* ================= FOOTER ================= */
+
+footer {
+    background: #123b2d;
+    color: white;
+    text-align: center;
+    padding: 25px;
+    font-size: 14px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 900px) {
+
+    header {
+        padding: 15px 5%;
+    }
+
+    nav {
+        gap: 15px;
+    }
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 60px 6%;
+    }
+
+    .hero-content {
+        width: 100%;
+    }
+
+    .hero-content h1 {
+        font-size: 44px;
+    }
+
+    .hero-content p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-image {
+        width: 100%;
+        margin-top: 40px;
+    }
+
+    .hero-person {
+        max-width: 400px;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .inspection-cards {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+
+    header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .brand-text {
+        font-size: 24px;
+    }
+
+    nav {
+        gap: 12px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero {
+        min-height: auto;
+    }
+
+    .hero-content h1 {
+        font-size: 38px;
+    }
+
+    .hero-content p {
+        font-size: 15px;
+    }
+
+    .hero-person {
+        max-width: 320px;
+    }
+
+    .form-container,
+    .dashboard-container {
+        padding: 15px;
+    }
+
+    .option {
+        min-width: 100%;
+    }
+}
+</style>
 </head>
 
 
 <body>
 
-    <!-- ================= HEADER ================= -->
+<!-- =====================================================
+     HEADER
+===================================================== -->
 
-    <header>
+<header>
 
-        <div class="brand">
+    <div class="brand">
 
-            <!-- LOGO -->
-            <img
-                src="ChatGPT%20Image%20Sep%208,%202026,%2008_44_05%20AM.png"
-                alt="Logo"
-                class="brand-logo"
-            >
+        <!-- LOGO -->
+        <img
+            src="ChatGPT%20Image%20Sep%208,%202026,%2008_44_05%20AM.png"
+            alt="Logo SIAGA"
+            class="brand-logo"
+        >
 
-            <!-- TULISAN SIAGA -->
-            <div class="brand-text">
-                SIAGA
-            </div>
-
+        <!-- TULISAN SIAGA -->
+        <div class="brand-text">
+            SIAGA
         </div>
 
-
-        <!-- NAVIGASI -->
-
-        <nav>
-            <a href="#beranda">Beranda</a>
-            <a href="#tentang">Tentang</a>
-            <a href="#informasi">Informasi</a>
-            <a href="#kontak">Kontak</a>
-        </nav>
-
-    </header>
+    </div>
 
 
+    <!-- NAVIGASI -->
+
+    <nav>
+        <a href="#beranda" onclick="showPage('home')">
+            Beranda
+        </a>
+
+        <a href="#tentang">
+            Tentang
+        </a>
+
+        <a href="#informasi">
+            Informasi
+        </a>
+
+        <button
+            class="nav-button"
+            onclick="showPage('pilihInspeksi')"
+        >
+            Inspeksi
+        </button>
+
+        <button
+            class="nav-button"
+            onclick="showPage('dashboard')"
+        >
+            Dashboard
+        </button>
+    </nav>
+
+</header>
+
+
+<!-- =====================================================
+     BERANDA
+===================================================== -->
+
+<div id="home" class="page active">
 
     <!-- ================= HERO ================= -->
 
@@ -485,7 +827,10 @@
                 aman dan sehat.
             </p>
 
-            <a href="#informasi" class="hero-button">
+            <a
+                href="#informasi"
+                class="hero-button"
+            >
                 Lihat Informasi
             </a>
 
@@ -507,10 +852,12 @@
     </section>
 
 
-
     <!-- ================= INFORMASI ================= -->
 
-    <section class="info-section" id="informasi">
+    <section
+        class="info-section"
+        id="informasi"
+    >
 
         <h2>
             Informasi Keselamatan
@@ -582,10 +929,12 @@
     </section>
 
 
-
     <!-- ================= TENTANG ================= -->
 
-    <section class="info-section" id="tentang">
+    <section
+        class="info-section"
+        id="tentang"
+    >
 
         <h2>
             Tentang SIAGA
@@ -600,16 +949,2096 @@
     </section>
 
 
+    <!-- ================= MENU INSPEKSI ================= -->
 
-    <!-- ================= FOOTER ================= -->
+    <section class="inspection-section">
 
-    <footer id="kontak">
+        <h2>
+            Inspeksi Keselamatan Kerja
+        </h2>
 
-        © 2026 SIAGA — Keselamatan dan Kesehatan Kerja
+        <p>
+            Pilih jenis inspeksi yang ingin dilakukan.
+        </p>
 
-    </footer>
+
+        <div class="inspection-cards">
+
+            <!-- APAR -->
+
+            <div class="inspection-card">
+
+                <div class="big-icon">
+                    🧯
+                </div>
+
+                <h3>
+                    Inspeksi APAR
+                </h3>
+
+                <p>
+                    Pemeriksaan kondisi dan kelayakan
+                    Alat Pemadam Api Ringan.
+                </p>
+
+                <button
+                    class="btn apar-btn"
+                    onclick="showPage('apar')"
+                >
+                    Mulai Inspeksi APAR →
+                </button>
+
+            </div>
+
+
+            <!-- P3K -->
+
+            <div class="inspection-card">
+
+                <div class="big-icon">
+                    🩹
+                </div>
+
+                <h3>
+                    Inspeksi P3K
+                </h3>
+
+                <p>
+                    Pemeriksaan kondisi kotak dan
+                    kelengkapan fasilitas P3K.
+                </p>
+
+                <button
+                    class="btn p3k-btn"
+                    onclick="showPage('p3k')"
+                >
+                    Mulai Inspeksi P3K →
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+
+<!-- =====================================================
+     PILIH INSPEKSI
+===================================================== -->
+
+<div id="pilihInspeksi" class="page">
+
+    <div class="dashboard-container">
+
+        <button
+            class="btn back-btn"
+            onclick="showPage('home')"
+        >
+            ← Kembali
+        </button>
+
+        <div class="dashboard-header">
+
+            <h1>
+                📝 Pilih Inspeksi
+            </h1>
+
+            <p>
+                Pilih jenis pemeriksaan keselamatan kerja.
+            </p>
+
+        </div>
+
+
+        <div class="inspection-cards">
+
+            <div class="inspection-card">
+
+                <div class="big-icon">
+                    🧯
+                </div>
+
+                <h3>
+                    Inspeksi APAR
+                </h3>
+
+                <p>
+                    Pemeriksaan kondisi APAR secara lengkap.
+                </p>
+
+                <button
+                    class="btn apar-btn"
+                    onclick="showPage('apar')"
+                >
+                    Mulai →
+                </button>
+
+            </div>
+
+
+            <div class="inspection-card">
+
+                <div class="big-icon">
+                    🩹
+                </div>
+
+                <h3>
+                    Inspeksi P3K
+                </h3>
+
+                <p>
+                    Pemeriksaan kotak dan isi P3K.
+                </p>
+
+                <button
+                    class="btn p3k-btn"
+                    onclick="showPage('p3k')"
+                >
+                    Mulai →
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     APAR
+===================================================== -->
+
+<div id="apar" class="page">
+
+<div class="form-container">
+
+    <button
+        class="btn back-btn"
+        onclick="showPage('home')"
+    >
+        ← Kembali
+    </button>
+
+
+    <div class="form-header">
+
+        <h1>
+            🧯 INSPEKSI KONDISI APAR
+        </h1>
+
+        <p>
+            Pemeriksaan kondisi APAR berdasarkan
+            kondisi aktual di lokasi.
+        </p>
+
+    </div>
+
+
+    <!-- A -->
+
+    <div class="section-title">
+        A. IDENTITAS PEMERIKSAAN
+    </div>
+
+    <div class="section">
+
+        <div class="input-group">
+
+            <label>
+                Nama Pemeriksa
+            </label>
+
+            <input
+                type="text"
+                id="aparPetugas"
+            >
+
+        </div>
+
+
+        <div class="input-group">
+
+            <label>
+                Tanggal Pemeriksaan
+            </label>
+
+            <input
+                type="date"
+                id="aparTanggal"
+            >
+
+        </div>
+
+
+        <div class="input-group">
+
+            <label>
+                Kode APAR
+            </label>
+
+            <input
+                type="text"
+                id="aparKode"
+            >
+
+        </div>
+
+
+        <div class="input-group">
+
+            <label>
+                Lokasi/Ruangan Pemeriksaan
+            </label>
+
+            <input
+                type="text"
+                id="aparLokasi"
+            >
+
+        </div>
+
+    </div>
+
+
+    <!-- B -->
+
+    <div class="section-title">
+        B. IDENTITAS APAR
+    </div>
+
+    <div class="section">
+
+        <div class="input-group">
+
+            <label>
+                Jenis Media Pemadam
+            </label>
+
+            <select id="aparMedia">
+
+                <option value="">
+                    Pilih
+                </option>
+
+                <option>
+                    Dry Chemical Powder
+                </option>
+
+                <option>
+                    CO₂
+                </option>
+
+                <option>
+                    Foam
+                </option>
+
+                <option>
+                    Air
+                </option>
+
+                <option>
+                    Lainnya
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div class="input-group">
+
+            <label>
+                Kapasitas APAR
+            </label>
+
+            <input
+                type="text"
+                id="aparKapasitas"
+                placeholder="Contoh: 3 Kg"
+            >
+
+        </div>
+
+    </div>
+
+
+    <!-- C -->
+
+    <div class="section-title">
+        C. KONDISI APAR
+    </div>
+
+    <div id="aparChecklist"></div>
+
+
+    <!-- D -->
+
+    <div class="section-title">
+        D. TEMUAN DAN KETIDAKSESUAIAN
+    </div>
+
+    <div class="section">
+
+        <div class="input-group">
+
+            <label>
+                Apakah ditemukan ketidaksesuaian?
+            </label>
+
+            <div class="options">
+
+                <label class="option">
+
+                    <input
+                        type="radio"
+                        name="aparTemuan"
+                        value="Ya"
+                    >
+
+                    Ya
+
+                </label>
+
+
+                <label class="option">
+
+                    <input
+                        type="radio"
+                        name="aparTemuan"
+                        value="Tidak"
+                    >
+
+                    Tidak
+
+                </label>
+
+            </div>
+
+        </div>
+
+
+        <div class="input-group">
+
+            <label>
+                Uraian Temuan
+            </label>
+
+            <textarea
+                id="aparUraian"
+                rows="5"
+            ></textarea>
+
+        </div>
+
+    </div>
+
+
+    <!-- E -->
+
+    <div class="section-title">
+        E. DOKUMENTASI
+    </div>
+
+    <div class="section">
+
+        <label>
+            Upload Foto Kondisi APAR / Temuan
+        </label>
+
+        <input
+            type="file"
+            id="aparFoto"
+            accept="image/*"
+        >
+
+    </div>
+
+
+    <!-- F -->
+
+    <div class="section-title">
+        F. STATUS AKHIR
+    </div>
+
+    <div class="section">
+
+        <div
+            id="aparStatus"
+            class="status-box status-warning"
+        >
+            Status akan muncul berdasarkan hasil pemeriksaan
+        </div>
+
+
+        <button
+            class="btn submit-btn"
+            onclick="submitAPAR()"
+        >
+            KIRIM HASIL INSPEKSI APAR 🔥
+        </button>
+
+    </div>
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     P3K
+===================================================== -->
+
+<div id="p3k" class="page">
+
+<div class="form-container">
+
+    <button
+        class="btn back-btn"
+        onclick="showPage('home')"
+    >
+        ← Kembali
+    </button>
+
+
+    <div class="form-header">
+
+        <h1>
+            🩹 INSPEKSI KONDISI P3K
+        </h1>
+
+        <p>
+            Pemeriksaan kondisi kotak dan kelengkapan
+            fasilitas P3K.
+        </p>
+
+    </div>
+
+
+    <!-- A -->
+
+    <div class="section-title">
+        A. IDENTITAS PEMERIKSAAN
+    </div>
+
+    <div class="section">
+
+        <div class="input-group">
+
+            <label>
+                Nama Pemeriksa
+            </label>
+
+            <input
+                type="text"
+                id="p3kPetugas"
+            >
+
+        </div>
+
+
+        <div class="input-group">
+
+            <label>
+                Tanggal Pemeriksaan
+            </label>
+
+            <input
+                type="date"
+                id="p3kTanggal"
+            >
+
+        </div>
+
+
+        <div class="input-group">
+
+            <label>
+                Lokasi/Ruangan Pemeriksaan
+            </label>
+
+            <input
+                type="text"
+                id="p3kLokasi"
+            >
+
+        </div>
+
+    </div>
+
+
+    <!-- B -->
+
+    <div class="section-title">
+        B. KONDISI KOTAK P3K
+    </div>
+
+    <div id="p3kKotakChecklist"></div>
+
+
+    <!-- C -->
+
+    <div class="section-title">
+        C. KONDISI ISI P3K
+    </div>
+
+    <div class="section">
+
+        <p style="margin-bottom:20px;color:#667085;">
+
+            Isi kondisi setiap item P3K
+            berdasarkan pemeriksaan aktual.
+
+        </p>
+
+        <div id="p3kItemKondisi"></div>
+
+    </div>
+
+
+    <!-- D -->
+
+    <div class="section-title">
+        D. KELENGKAPAN ISI P3K
+    </div>
+
+    <div id="p3kKelengkapan"></div>
+
+
+    <!-- E -->
+
+    <div class="section-title">
+        E. KONDISI DAN TEMUAN
+    </div>
+
+    <div class="section">
+
+        <div class="input-group">
+
+            <label>
+                Apakah terdapat isi P3K yang rusak?
+            </label>
+
+            <select id="p3kRusak">
+
+                <option value="">
+                    Pilih
+                </option>
+
+                <option>
+                    Ya
+                </option>
+
+                <option>
+                    Tidak
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div class="input-group">
+
+            <label>
+                Apakah terdapat isi P3K yang kedaluwarsa?
+            </label>
+
+            <select id="p3kExpired">
+
+                <option value="">
+                    Pilih
+                </option>
+
+                <option>
+                    Ya
+                </option>
+
+                <option>
+                    Tidak
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div class="input-group">
+
+            <label>
+                Apakah terdapat perlengkapan yang jumlahnya kurang?
+            </label>
+
+            <select id="p3kKurang">
+
+                <option value="">
+                    Pilih
+                </option>
+
+                <option>
+                    Ya
+                </option>
+
+                <option>
+                    Tidak
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div class="input-group">
+
+            <label>
+                Uraikan temuan atau ketidaksesuaian
+            </label>
+
+            <textarea
+                id="p3kUraian"
+                rows="5"
+            ></textarea>
+
+        </div>
+
+    </div>
+
+
+    <!-- F -->
+
+    <div class="section-title">
+        F. DOKUMENTASI
+    </div>
+
+    <div class="section">
+
+        <div class="input-group">
+
+            <label>
+                Upload Foto Kondisi Kotak P3K
+            </label>
+
+            <input
+                type="file"
+                id="p3kFotoKotak"
+                accept="image/*"
+            >
+
+        </div>
+
+
+        <div class="input-group">
+
+            <label>
+                Upload Foto Temuan/Ketidaksesuaian
+            </label>
+
+            <input
+                type="file"
+                id="p3kFotoTemuan"
+                accept="image/*"
+            >
+
+        </div>
+
+    </div>
+
+
+    <!-- G -->
+
+    <div class="section-title">
+        G. STATUS AKHIR
+    </div>
+
+    <div class="section">
+
+        <div
+            id="p3kStatus"
+            class="status-box status-warning"
+        >
+            Status akan muncul berdasarkan hasil pemeriksaan
+        </div>
+
+
+        <div class="input-group">
+
+            <label>
+                Tindak Lanjut yang Diperlukan
+            </label>
+
+            <select id="p3kTindakLanjut">
+
+                <option value="">
+                    Pilih
+                </option>
+
+                <option>
+                    Tidak ada
+                </option>
+
+                <option>
+                    Pengadaan/perlengkapan ulang
+                </option>
+
+                <option>
+                    Penggantian barang rusak
+                </option>
+
+                <option>
+                    Penggantian barang kedaluwarsa
+                </option>
+
+                <option>
+                    Tindak lanjut lainnya
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <button
+            class="btn submit-btn"
+            onclick="submitP3K()"
+        >
+            KIRIM HASIL INSPEKSI P3K 🩹
+        </button>
+
+    </div>
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     DASHBOARD UTAMA
+===================================================== -->
+
+<div id="dashboard" class="page">
+
+<div class="dashboard-container">
+
+    <button
+        class="btn back-btn"
+        onclick="showPage('home')"
+    >
+        ← Kembali
+    </button>
+
+
+    <div class="dashboard-header">
+
+        <h1>
+            📊 Dashboard Inspeksi K3
+        </h1>
+
+        <p>
+            Pilih dashboard berdasarkan jenis inspeksi.
+        </p>
+
+    </div>
+
+
+    <div class="inspection-cards">
+
+        <!-- APAR -->
+
+        <div class="inspection-card">
+
+            <div class="big-icon">
+                🧯
+            </div>
+
+            <h3>
+                Dashboard APAR
+            </h3>
+
+            <p>
+                Melihat hasil dan riwayat inspeksi APAR.
+            </p>
+
+            <button
+                class="btn apar-btn"
+                onclick="showPage('dashboardApar')"
+            >
+                Lihat Dashboard APAR →
+            </button>
+
+        </div>
+
+
+        <!-- P3K -->
+
+        <div class="inspection-card">
+
+            <div class="big-icon">
+                🩹
+            </div>
+
+            <h3>
+                Dashboard P3K
+            </h3>
+
+            <p>
+                Melihat hasil dan riwayat inspeksi P3K.
+            </p>
+
+            <button
+                class="btn p3k-btn"
+                onclick="showPage('dashboardP3K')"
+            >
+                Lihat Dashboard P3K →
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     DASHBOARD APAR
+===================================================== -->
+
+<div id="dashboardApar" class="page">
+
+<div class="dashboard-container">
+
+    <button
+        class="btn back-btn"
+        onclick="showPage('dashboard')"
+    >
+        ← Kembali
+    </button>
+
+
+    <div class="dashboard-header">
+
+        <h1>
+            🧯 Dashboard Inspeksi APAR
+        </h1>
+
+        <p>
+            Hasil pemeriksaan APAR.
+        </p>
+
+    </div>
+
+
+    <div class="stats-grid">
+
+        <div class="stat">
+
+            <p>
+                Total Inspeksi
+            </p>
+
+            <h2 id="aparTotal">
+                0
+            </h2>
+
+        </div>
+
+
+        <div class="stat">
+
+            <p>
+                🟢 Layak
+            </p>
+
+            <h2 id="aparLayak">
+                0
+            </h2>
+
+        </div>
+
+
+        <div class="stat">
+
+            <p>
+                🟡 Perlu Tindak Lanjut
+            </p>
+
+            <h2 id="aparPerhatian">
+                0
+            </h2>
+
+        </div>
+
+
+        <div class="stat">
+
+            <p>
+                🔴 Tidak Layak
+            </p>
+
+            <h2 id="aparTidakLayak">
+                0
+            </h2>
+
+        </div>
+
+    </div>
+
+
+    <div class="table-container">
+
+        <h2>
+            Riwayat Inspeksi APAR
+        </h2>
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>
+                        Tanggal
+                    </th>
+
+                    <th>
+                        Kode APAR
+                    </th>
+
+                    <th>
+                        Lokasi
+                    </th>
+
+                    <th>
+                        Pemeriksa
+                    </th>
+
+                    <th>
+                        Status
+                    </th>
+
+                </tr>
+
+            </thead>
+
+
+            <tbody id="aparTable"></tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     DASHBOARD P3K
+===================================================== -->
+
+<div id="dashboardP3K" class="page">
+
+<div class="dashboard-container">
+
+    <button
+        class="btn back-btn"
+        onclick="showPage('dashboard')"
+    >
+        ← Kembali
+    </button>
+
+
+    <div class="dashboard-header">
+
+        <h1>
+            🩹 Dashboard Inspeksi P3K
+        </h1>
+
+        <p>
+            Hasil pemeriksaan fasilitas P3K.
+        </p>
+
+    </div>
+
+
+    <div class="stats-grid">
+
+        <div class="stat">
+
+            <p>
+                Total Inspeksi
+            </p>
+
+            <h2 id="p3kTotal">
+                0
+            </h2>
+
+        </div>
+
+
+        <div class="stat">
+
+            <p>
+                🟢 Sesuai
+            </p>
+
+            <h2 id="p3kSesuai">
+                0
+            </h2>
+
+        </div>
+
+
+        <div class="stat">
+
+            <p>
+                🟡 Perlu Perhatian
+            </p>
+
+            <h2 id="p3kPerhatian">
+                0
+            </h2>
+
+        </div>
+
+
+        <div class="stat">
+
+            <p>
+                🔴 Tidak Sesuai
+            </p>
+
+            <h2 id="p3kTidakSesuai">
+                0
+            </h2>
+
+        </div>
+
+    </div>
+
+
+    <div class="table-container">
+
+        <h2>
+            Riwayat Inspeksi P3K
+        </h2>
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>
+                        Tanggal
+                    </th>
+
+                    <th>
+                        Lokasi
+                    </th>
+
+                    <th>
+                        Pemeriksa
+                    </th>
+
+                    <th>
+                        Status
+                    </th>
+
+                    <th>
+                        Tindak Lanjut
+                    </th>
+
+                </tr>
+
+            </thead>
+
+
+            <tbody id="p3kTable"></tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+/* =====================================================
+   NAVIGASI
+===================================================== */
+
+function showPage(pageId) {
+
+    document.querySelectorAll(".page").forEach(page => {
+
+        page.classList.remove("active");
+
+    });
+
+
+    const target =
+        document.getElementById(pageId);
+
+    if(target) {
+
+        target.classList.add("active");
+
+    }
+
+
+    if(pageId === "dashboardApar") {
+
+        loadAparDashboard();
+
+    }
+
+
+    if(pageId === "dashboardP3K") {
+
+        loadP3KDashboard();
+
+    }
+
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+}
+
+
+/* =====================================================
+   APAR CHECKLIST
+===================================================== */
+
+const aparItems = [
+
+    "Kondisi fisik tabung APAR",
+
+    "Kondisi tekanan APAR",
+
+    "Kondisi pin pengaman",
+
+    "Kondisi segel APAR",
+
+    "Kondisi selang dan nozzle",
+
+    "Kondisi label dan petunjuk",
+
+    "Masa berlaku APAR",
+
+    "Penempatan APAR",
+
+    "Akses menuju APAR",
+
+    "Kondisi rambu APAR"
+
+];
+
+
+const aparChecklist =
+    document.getElementById("aparChecklist");
+
+
+aparItems.forEach((item, index) => {
+
+    aparChecklist.innerHTML += `
+
+        <div class="check-card">
+
+            <h3>
+                ${index + 1}. ${item}
+            </h3>
+
+            <div class="options">
+
+                <label class="option">
+
+                    <input
+                        type="radio"
+                        name="aparCheck${index}"
+                        value="Baik"
+                        onchange="updateAparStatus()"
+                    >
+
+                    🟢 Baik
+
+                </label>
+
+
+                <label class="option">
+
+                    <input
+                        type="radio"
+                        name="aparCheck${index}"
+                        value="Perlu Perhatian"
+                        onchange="updateAparStatus()"
+                    >
+
+                    🟡 Perlu Perhatian
+
+                </label>
+
+
+                <label class="option">
+
+                    <input
+                        type="radio"
+                        name="aparCheck${index}"
+                        value="Tidak Sesuai"
+                        onchange="updateAparStatus()"
+                    >
+
+                    🔴 Tidak Sesuai
+
+                </label>
+
+            </div>
+
+        </div>
+
+    `;
+
+});
+
+
+/* =====================================================
+   STATUS APAR
+===================================================== */
+
+function updateAparStatus() {
+
+    const tidakSesuai =
+        document.querySelectorAll(
+            'input[name^="aparCheck"][value="Tidak Sesuai"]:checked'
+        ).length;
+
+
+    const perhatian =
+        document.querySelectorAll(
+            'input[name^="aparCheck"][value="Perlu Perhatian"]:checked'
+        ).length;
+
+
+    const statusBox =
+        document.getElementById("aparStatus");
+
+
+    if(tidakSesuai > 0) {
+
+        statusBox.innerHTML =
+            "🔴 TIDAK LAYAK DIGUNAKAN";
+
+        statusBox.className =
+            "status-box status-danger";
+
+    }
+
+    else if(perhatian > 0) {
+
+        statusBox.innerHTML =
+            "🟡 PERLU TINDAK LANJUT";
+
+        statusBox.className =
+            "status-box status-warning";
+
+    }
+
+    else {
+
+        statusBox.innerHTML =
+            "🟢 LAYAK DIGUNAKAN";
+
+        statusBox.className =
+            "status-box status-normal";
+
+    }
+
+}
+
+
+/* =====================================================
+   P3K KONDISI KOTAK
+===================================================== */
+
+const kondisiKotak = [
+
+    "Apakah kotak P3K tersedia di lokasi?",
+
+    "Apakah kotak P3K mudah ditemukan dan dijangkau?",
+
+    "Apakah kotak P3K memiliki tanda/simbol yang jelas?",
+
+    "Apakah kondisi kotak P3K dalam keadaan baik?",
+
+    "Apakah kotak P3K dalam keadaan bersih?"
+
+];
+
+
+const kotakContainer =
+    document.getElementById("p3kKotakChecklist");
+
+
+kondisiKotak.forEach((item, index) => {
+
+    kotakContainer.innerHTML += `
+
+        <div class="check-card">
+
+            <h3>
+                ${index + 1}. ${item}
+            </h3>
+
+            <div class="options">
+
+                <label class="option">
+
+                    <input
+                        type="radio"
+                        name="kotak${index}"
+                        value="Sesuai"
+                        onchange="updateP3KStatus()"
+                    >
+
+                    🟢 Sesuai
+
+                </label>
+
+
+                <label class="option">
+
+                    <input
+                        type="radio"
+                        name="kotak${index}"
+                        value="Perlu Perhatian"
+                        onchange="updateP3KStatus()"
+                    >
+
+                    🟡 Perlu Perhatian
+
+                </label>
+
+
+                <label class="option">
+
+                    <input
+                        type="radio"
+                        name="kotak${index}"
+                        value="Tidak Sesuai"
+                        onchange="updateP3KStatus()"
+                    >
+
+                    🔴 Tidak Sesuai
+
+                </label>
+
+            </div>
+
+        </div>
+
+    `;
+
+});
+
+
+/* =====================================================
+   ITEM P3K
+===================================================== */
+
+const p3kItems = [
+
+    "Kasa steril",
+
+    "Perban",
+
+    "Plester",
+
+    "Kapas",
+
+    "Sarung tangan",
+
+    "Masker",
+
+    "Antiseptik",
+
+    "Gunting",
+
+    "Pinset",
+
+    "Perlengkapan lainnya"
+
+];
+
+
+const itemKondisi =
+    document.getElementById("p3kItemKondisi");
+
+
+p3kItems.forEach((item, index) => {
+
+    itemKondisi.innerHTML += `
+
+        <div class="item-card">
+
+            <h3>
+                ${item}
+            </h3>
+
+
+            <div class="input-group">
+
+                <label>
+                    Jumlah tersedia
+                </label>
+
+                <input
+                    type="number"
+                    id="jumlah${index}"
+                    min="0"
+                >
+
+            </div>
+
+
+            <div class="input-group">
+
+                <label>
+                    Kondisi barang
+                </label>
+
+                <select
+                    id="kondisi${index}"
+                    onchange="updateP3KStatus()"
+                >
+
+                    <option value="">
+                        Pilih
+                    </option>
+
+                    <option>
+                        Baik
+                    </option>
+
+                    <option>
+                        Rusak
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="input-group">
+
+                <label>
+                    Tanggal kedaluwarsa (jika ada)
+                </label>
+
+                <input
+                    type="date"
+                    id="expired${index}"
+                >
+
+            </div>
+
+
+            <div class="input-group">
+
+                <label>
+                    Keterangan
+                </label>
+
+                <input
+                    type="text"
+                    id="keterangan${index}"
+                >
+
+            </div>
+
+        </div>
+
+    `;
+
+});
+
+
+/* =====================================================
+   KELENGKAPAN P3K
+===================================================== */
+
+const kelengkapanContainer =
+    document.getElementById("p3kKelengkapan");
+
+
+p3kItems.forEach((item, index) => {
+
+    kelengkapanContainer.innerHTML += `
+
+        <div class="check-card">
+
+            <h3>
+                ${item}
+            </h3>
+
+
+            <div class="options">
+
+                <label class="option">
+
+                    <input
+                        type="radio"
+                        name="lengkap${index}"
+                        value="Sesuai"
+                        onchange="updateP3KStatus()"
+                    >
+
+                    🟢 Sesuai
+
+                </label>
+
+
+                <label class="option">
+
+                    <input
+                        type="radio"
+                        name="lengkap${index}"
+                        value="Kurang"
+                        onchange="updateP3KStatus()"
+                    >
+
+                    🟡 Kurang
+
+                </label>
+
+
+                <label class="option">
+
+                    <input
+                        type="radio"
+                        name="lengkap${index}"
+                        value="Tidak tersedia"
+                        onchange="updateP3KStatus()"
+                    >
+
+                    🔴 Tidak tersedia
+
+                </label>
+
+
+                <label class="option">
+
+                    <input
+                        type="radio"
+                        name="lengkap${index}"
+                        value="Kedaluwarsa"
+                        onchange="updateP3KStatus()"
+                    >
+
+                    🔴 Kedaluwarsa
+
+                </label>
+
+            </div>
+
+        </div>
+
+    `;
+
+});
+
+
+/* =====================================================
+   STATUS P3K
+===================================================== */
+
+function updateP3KStatus() {
+
+    const critical =
+        document.querySelectorAll(
+            'input[name^="kotak"][value="Tidak Sesuai"]:checked,' +
+            'input[name^="lengkap"][value="Tidak tersedia"]:checked,' +
+            'input[name^="lengkap"][value="Kedaluwarsa"]:checked'
+        ).length;
+
+
+    const warning =
+        document.querySelectorAll(
+            'input[name^="kotak"][value="Perlu Perhatian"]:checked,' +
+            'input[name^="lengkap"][value="Kurang"]:checked'
+        ).length;
+
+
+    const kondisiRusak = [];
+
+    for(let i = 0; i < p3kItems.length; i++) {
+
+        const kondisi =
+            document.getElementById(
+                "kondisi" + i
+            );
+
+        if(kondisi && kondisi.value === "Rusak") {
+
+            kondisiRusak.push(kondisi);
+
+        }
+
+    }
+
+
+    const statusBox =
+        document.getElementById("p3kStatus");
+
+
+    if(
+        critical > 0 ||
+        kondisiRusak.length > 0
+    ) {
+
+        statusBox.innerHTML =
+            "🔴 TIDAK SESUAI";
+
+        statusBox.className =
+            "status-box status-danger";
+
+    }
+
+    else if(warning > 0) {
+
+        statusBox.innerHTML =
+            "🟡 PERLU PERHATIAN";
+
+        statusBox.className =
+            "status-box status-warning";
+
+    }
+
+    else {
+
+        statusBox.innerHTML =
+            "🟢 SESUAI";
+
+        statusBox.className =
+            "status-box status-normal";
+
+    }
+
+}
+
+
+/* =====================================================
+   SIMPAN APAR
+===================================================== */
+
+function submitAPAR() {
+
+    const petugas =
+        document.getElementById("aparPetugas").value;
+
+    const tanggal =
+        document.getElementById("aparTanggal").value;
+
+    const kode =
+        document.getElementById("aparKode").value;
+
+    const lokasi =
+        document.getElementById("aparLokasi").value;
+
+
+    if(
+        petugas === "" ||
+        tanggal === "" ||
+        kode === "" ||
+        lokasi === ""
+    ) {
+
+        alert(
+            "Mohon lengkapi identitas pemeriksaan APAR terlebih dahulu."
+        );
+
+        return;
+
+    }
+
+
+    const data = {
+
+        tanggal: tanggal,
+
+        jenis: "APAR",
+
+        kode: kode,
+
+        lokasi: lokasi,
+
+        pemeriksa: petugas,
+
+        status:
+            document.getElementById(
+                "aparStatus"
+            ).innerText
+
+    };
+
+
+    let dataApar =
+        JSON.parse(
+            localStorage.getItem("dataApar")
+        ) || [];
+
+
+    dataApar.push(data);
+
+
+    localStorage.setItem(
+        "dataApar",
+        JSON.stringify(dataApar)
+    );
+
+
+    alert(
+        "Hasil inspeksi APAR berhasil disimpan!"
+    );
+
+
+    showPage("dashboardApar");
+
+}
+
+
+/* =====================================================
+   SIMPAN P3K
+===================================================== */
+
+function submitP3K() {
+
+    const petugas =
+        document.getElementById("p3kPetugas").value;
+
+    const tanggal =
+        document.getElementById("p3kTanggal").value;
+
+    const lokasi =
+        document.getElementById("p3kLokasi").value;
+
+
+    if(
+        petugas === "" ||
+        tanggal === "" ||
+        lokasi === ""
+    ) {
+
+        alert(
+            "Mohon lengkapi identitas pemeriksaan P3K terlebih dahulu."
+        );
+
+        return;
+
+    }
+
+
+    const data = {
+
+        tanggal: tanggal,
+
+        jenis: "P3K",
+
+        lokasi: lokasi,
+
+        pemeriksa: petugas,
+
+        status:
+            document.getElementById(
+                "p3kStatus"
+            ).innerText,
+
+        tindakLanjut:
+            document.getElementById(
+                "p3kTindakLanjut"
+            ).value
+
+    };
+
+
+    let dataP3K =
+        JSON.parse(
+            localStorage.getItem("dataP3K")
+        ) || [];
+
+
+    dataP3K.push(data);
+
+
+    localStorage.setItem(
+        "dataP3K",
+        JSON.stringify(dataP3K)
+    );
+
+
+    alert(
+        "Hasil inspeksi P3K berhasil disimpan!"
+    );
+
+
+    showPage("dashboardP3K");
+
+}
+
+
+/* =====================================================
+   DASHBOARD APAR
+===================================================== */
+
+function loadAparDashboard() {
+
+    const data =
+        JSON.parse(
+            localStorage.getItem("dataApar")
+        ) || [];
+
+
+    document.getElementById(
+        "aparTotal"
+    ).innerText = data.length;
+
+
+    let layak = 0;
+
+    let perhatian = 0;
+
+    let tidakLayak = 0;
+
+
+    const table =
+        document.getElementById(
+            "aparTable"
+        );
+
+
+    table.innerHTML = "";
+
+
+    data.forEach(item => {
+
+        if(
+            item.status.includes(
+                "TIDAK LAYAK"
+            )
+        ) {
+
+            tidakLayak++;
+
+        }
+
+        else if(
+            item.status.includes(
+                "PERLU"
+            )
+        ) {
+
+            perhatian++;
+
+        }
+
+        else if(
+            item.status.includes(
+                "LAYAK"
+            )
+        ) {
+
+            layak++;
+
+        }
+
+
+        table.innerHTML += `
+
+            <tr>
+
+                <td>
+                    ${item.tanggal}
+                </td>
+
+                <td>
+                    ${item.kode}
+                </td>
+
+                <td>
+                    ${item.lokasi}
+                </td>
+
+                <td>
+                    ${item.pemeriksa}
+                </td>
+
+                <td>
+                    ${item.status}
+                </td>
+
+            </tr>
+
+        `;
+
+    });
+
+
+    document.getElementById(
+        "aparLayak"
+    ).innerText = layak;
+
+
+    document.getElementById(
+        "aparPerhatian"
+    ).innerText = perhatian;
+
+
+    document.getElementById(
+        "aparTidakLayak"
+    ).innerText = tidakLayak;
+
+}
+
+
+/* =====================================================
+   DASHBOARD P3K
+===================================================== */
+
+function loadP3KDashboard() {
+
+    const data =
+        JSON.parse(
+            localStorage.getItem("dataP3K")
+        ) || [];
+
+
+    document.getElementById(
+        "p3kTotal"
+    ).innerText = data.length;
+
+
+    let sesuai = 0;
+
+    let perhatian = 0;
+
+    let tidakSesuai = 0;
+
+
+    const table =
+        document.getElementById(
+            "p3kTable"
+        );
+
+
+    table.innerHTML = "";
+
+
+    data.forEach(item => {
+
+        if(
+            item.status.includes(
+                "TIDAK SESUAI"
+            )
+        ) {
+
+            tidakSesuai++;
+
+        }
+
+        else if(
+            item.status.includes(
+                "PERLU"
+            )
+        ) {
+
+            perhatian++;
+
+        }
+
+        else if(
+            item.status.includes(
+                "SESUAI"
+            )
+        ) {
+
+            sesuai++;
+
+        }
+
+
+        table.innerHTML += `
+
+            <tr>
+
+                <td>
+                    ${item.tanggal}
+                </td>
+
+                <td>
+                    ${item.lokasi}
+                </td>
+
+                <td>
+                    ${item.pemeriksa}
+                </td>
+
+                <td>
+                    ${item.status}
+                </td>
+
+                <td>
+                    ${item.tindakLanjut}
+                </td>
+
+            </tr>
+
+        `;
+
+    });
+
+
+    document.getElementById(
+        "p3kSesuai"
+    ).innerText = sesuai;
+
+
+    document.getElementById(
+        "p3kPerhatian"
+    ).innerText = perhatian;
+
+
+    document.getElementById(
+        "p3kTidakSesuai"
+    ).innerText = tidakSesuai;
+
+}
+
+</script>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer id="kontak">
+
+    © 2026 SIAGA — Keselamatan dan Kesehatan Kerja
+
+</footer>
 
 
 </body>
 </html>
-```
