@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -312,6 +311,87 @@ nav a:hover {
     color: #6b7280;
     line-height: 1.6;
     font-size: 14px;
+}
+
+/* ================= INFO DETAIL TAMBAHAN ================= */
+
+.info-card {
+    position: relative;
+}
+
+.info-toggle {
+    margin-top: 15px;
+    border: none;
+    background: #167b50;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 13px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.info-toggle:hover {
+    background: #0e633f;
+    transform: translateY(-2px);
+}
+
+.info-detail {
+    display: none;
+    margin-top: 18px;
+    padding: 18px;
+    background: white;
+    border-left: 4px solid #167b50;
+    border-radius: 10px;
+    animation: infoOpen 0.3s ease;
+}
+
+.info-detail.show {
+    display: block;
+}
+
+.info-detail strong {
+    display: block;
+    color: #174b38;
+    margin-bottom: 12px;
+    line-height: 1.5;
+}
+
+.info-detail ul {
+    padding-left: 20px;
+    margin: 0;
+}
+
+.info-detail li {
+    color: #5f6b66;
+    font-size: 13px;
+    line-height: 1.7;
+    margin-bottom: 6px;
+}
+
+.info-detail .info-note {
+    margin-top: 15px;
+    margin-bottom: 0;
+    padding-top: 12px;
+    border-top: 1px solid #e5eee9;
+    font-size: 13px;
+    color: #667085;
+    line-height: 1.6;
+}
+
+@keyframes infoOpen {
+
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
 }
 
 /* ================= PAGE ================= */
@@ -866,15 +946,15 @@ footer {
 
         <p>
             Kenali, pahami, dan terapkan keselamatan
-            dalam setiap aktivitas kerja di jalan tol.
+            dalam setiap aktivitas kerja.
         </p>
 
 
         <div class="cards">
 
-            <!-- GUNAKAN APD -->
+            <!-- ================= GUNAKAN APD ================= -->
 
-            <div class="card">
+            <div class="card info-card">
 
                 <div class="card-icon">
                     🦺
@@ -885,67 +965,71 @@ footer {
                 </h3>
 
                 <p>
-                    Gunakan Alat Pelindung Diri (APD) sesuai
-                    dengan jenis pekerjaan dan potensi bahaya
-                    di area jalan tol.
+                    Pastikan alat pelindung diri digunakan
+                    sesuai dengan risiko pekerjaan.
                 </p>
 
-                <div style="
-                    margin-top:15px;
-                    padding-top:15px;
-                    border-top:1px solid #e5eee9;
-                ">
+                <button
+                    class="info-toggle"
+                    onclick="toggleInfo('apdInfo', this)"
+                >
+                    Lihat Contoh ↓
+                </button>
 
-                    <strong style="color:#174b38;">
-                        Contoh APD petugas jalan tol:
+                <div
+                    id="apdInfo"
+                    class="info-detail"
+                >
+
+                    <strong>
+                        Contoh APD pada pekerjaan jalan tol:
                     </strong>
 
-                    <ul style="
-                        margin-top:10px;
-                        padding-left:20px;
-                        color:#667085;
-                        line-height:1.8;
-                        font-size:14px;
-                    ">
+                    <ul>
 
                         <li>
-                            Helm keselamatan
+                            🦺 Rompi keselamatan / safety vest
                         </li>
 
                         <li>
-                            Rompi keselamatan/high visibility
+                            ⛑️ Helm keselamatan
                         </li>
 
                         <li>
-                            Sepatu keselamatan
+                            🥾 Sepatu keselamatan / safety shoes
                         </li>
 
                         <li>
-                            Sarung tangan kerja
+                            🧤 Sarung tangan kerja
                         </li>
 
                         <li>
-                            Kacamata pelindung
+                            👓 Kacamata keselamatan
                         </li>
 
                         <li>
-                            Masker/respirator sesuai kebutuhan
+                            😷 Masker sesuai kondisi pekerjaan
                         </li>
 
                         <li>
-                            Pelindung pendengaran saat diperlukan
+                            🦺 Pakaian kerja dengan visibilitas tinggi
                         </li>
 
                     </ul>
+
+                    <p class="info-note">
+                        Gunakan APD sesuai jenis pekerjaan dan
+                        potensi bahaya yang terdapat di lokasi kerja.
+                    </p>
 
                 </div>
 
             </div>
 
 
-            <!-- KENALI BAHAYA -->
+            <!-- ================= KENALI BAHAYA ================= -->
 
-            <div class="card">
+            <div class="card info-card">
 
                 <div class="card-icon">
                     ⚠️
@@ -956,70 +1040,80 @@ footer {
                 </h3>
 
                 <p>
-                    Kenali potensi bahaya sebelum dan selama
-                    melakukan pekerjaan di area jalan tol.
+                    Identifikasi potensi bahaya sebelum
+                    melakukan pekerjaan.
                 </p>
 
-                <div style="
-                    margin-top:15px;
-                    padding-top:15px;
-                    border-top:1px solid #e5eee9;
-                ">
+                <button
+                    class="info-toggle"
+                    onclick="toggleInfo('bahayaInfo', this)"
+                >
+                    Lihat Contoh ↓
+                </button>
 
-                    <strong style="color:#174b38;">
-                        Contoh bahaya pekerjaan jalan tol:
+                <div
+                    id="bahayaInfo"
+                    class="info-detail"
+                >
+
+                    <strong>
+                        Contoh bahaya pada pekerjaan jalan tol:
                     </strong>
 
-                    <ul style="
-                        margin-top:10px;
-                        padding-left:20px;
-                        color:#667085;
-                        line-height:1.8;
-                        font-size:14px;
-                    ">
+                    <ul>
 
                         <li>
-                            Tertabrak kendaraan yang melintas
+                            🚗 Tertabrak atau terserempet kendaraan yang melintas
                         </li>
 
                         <li>
-                            Kendaraan masuk ke area kerja
+                            🚧 Tertabrak kendaraan proyek atau alat berat
                         </li>
 
                         <li>
-                            Tertabrak atau terjepit alat berat
+                            ⚠️ Pekerjaan di bahu jalan dan area lalu lintas
                         </li>
 
                         <li>
-                            Terpeleset, tersandung, atau terjatuh
+                            🌧️ Hujan, genangan air, dan kondisi jalan licin
                         </li>
 
                         <li>
-                            Paparan debu dan asap kendaraan
+                            ☀️ Paparan panas dan cuaca ekstrem
                         </li>
 
                         <li>
-                            Kebisingan dari kendaraan dan alat kerja
+                            🔌 Bahaya listrik dari instalasi atau peralatan kerja
                         </li>
 
                         <li>
-                            Cuaca panas, hujan, atau petir
+                            🕳️ Terjatuh ke area galian atau permukaan tidak rata
                         </li>
 
                         <li>
-                            Risiko kebakaran dan tumpahan bahan
+                            🏗️ Tertimpa material atau terkena peralatan kerja
+                        </li>
+
+                        <li>
+                            🔊 Kebisingan dari kendaraan dan alat kerja
                         </li>
 
                     </ul>
+
+                    <p class="info-note">
+                        Kenali bahaya sebelum bekerja, jaga jarak aman
+                        dari kendaraan, dan ikuti rambu serta prosedur
+                        keselamatan di lokasi kerja.
+                    </p>
 
                 </div>
 
             </div>
 
 
-            <!-- SIAGA DARURAT -->
+            <!-- ================= SIAGA DARURAT ================= -->
 
-            <div class="card">
+            <div class="card info-card">
 
                 <div class="card-icon">
                     🚨
@@ -1030,84 +1124,71 @@ footer {
                 </h3>
 
                 <p>
-                    Kenali kondisi darurat dan lakukan tindakan
-                    tanggap darurat sesuai prosedur keselamatan
-                    di jalan tol.
+                    Ketahui prosedur tanggap darurat dan
+                    segera laporkan kondisi tidak aman.
                 </p>
 
-                <div style="
-                    margin-top:15px;
-                    padding-top:15px;
-                    border-top:1px solid #e5eee9;
-                ">
+                <button
+                    class="info-toggle"
+                    onclick="toggleInfo('daruratInfo', this)"
+                >
+                    Lihat Contoh ↓
+                </button>
 
-                    <strong style="color:#174b38;">
-                        Contoh kondisi darurat di jalan tol:
+                <div
+                    id="daruratInfo"
+                    class="info-detail"
+                >
+
+                    <strong>
+                        Contoh kondisi darurat pada pekerjaan jalan tol:
                     </strong>
 
-                    <ul style="
-                        margin-top:10px;
-                        padding-left:20px;
-                        color:#667085;
-                        line-height:1.8;
-                        font-size:14px;
-                    ">
+                    <ul>
 
                         <li>
-                            Kecelakaan lalu lintas
+                            🚗 Kecelakaan lalu lintas di jalan tol
                         </li>
 
                         <li>
-                            Pekerja tertabrak kendaraan
+                            🚧 Kecelakaan kerja di area proyek atau jalan
                         </li>
 
                         <li>
-                            Kebakaran kendaraan atau fasilitas
+                            🔥 Kebakaran kendaraan, alat, atau fasilitas
                         </li>
 
                         <li>
-                            Tumpahan BBM atau bahan berbahaya
+                            🩹 Pekerja mengalami cedera atau kecelakaan kerja
                         </li>
 
                         <li>
-                            Kendaraan mogok di lajur
+                            ⚡ Kejadian akibat bahaya listrik
                         </li>
 
                         <li>
-                            Banjir atau genangan di jalan tol
+                            🌧️ Banjir atau genangan yang mengganggu keselamatan
                         </li>
 
                         <li>
-                            Cuaca ekstrem dan sambaran petir
+                            🌪️ Cuaca ekstrem yang membahayakan pekerja
                         </li>
 
                         <li>
-                            Keadaan medis darurat pada pekerja
+                            🛢️ Tumpahan bahan bakar atau bahan berbahaya
+                        </li>
+
+                        <li>
+                            🚨 Kendaraan berhenti atau terjebak di area berbahaya
                         </li>
 
                     </ul>
 
-
-                    <div style="
-                        margin-top:15px;
-                        padding:12px;
-                        background:#fff7ed;
-                        border-radius:10px;
-                        color:#9a3412;
-                        font-size:13px;
-                        line-height:1.5;
-                    ">
-
-                        <strong>
-                            ⚠️ Ingat:
-                        </strong>
-
-                        Amankan diri dan area terlebih dahulu,
-                        segera laporkan kejadian kepada petugas
-                        terkait, dan ikuti prosedur tanggap
-                        darurat yang berlaku.
-
-                    </div>
+                    <p class="info-note">
+                        Jika terjadi keadaan darurat: tetap tenang,
+                        amankan diri dan area sekitar, laporkan kejadian,
+                        dan ikuti prosedur tanggap darurat yang berlaku.
+                    </p>
 
                 </div>
 
@@ -2310,6 +2391,40 @@ function showPage(pageId) {
 
 
 /* =====================================================
+   INFORMASI KESELAMATAN
+   BUKA / TUTUP CONTOH
+===================================================== */
+
+function toggleInfo(infoId, button) {
+
+    const info =
+        document.getElementById(infoId);
+
+    if(!info) return;
+
+
+    if(info.classList.contains("show")) {
+
+        info.classList.remove("show");
+
+        button.innerHTML =
+            "Lihat Contoh ↓";
+
+    }
+
+    else {
+
+        info.classList.add("show");
+
+        button.innerHTML =
+            "Tutup Contoh ↑";
+
+    }
+
+}
+
+
+/* =====================================================
    APAR CHECKLIST
 ===================================================== */
 
@@ -3231,4 +3346,3 @@ function loadP3KDashboard() {
 
 </body>
 </html>
-```
